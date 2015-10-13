@@ -1,0 +1,8 @@
+c:\users\bnowicki\documents\visual studio 2015\Projects\GlsTestApi\GlsTestApi\bin\Debug\GlsTestApi.exe.config
+c:\users\bnowicki\documents\visual studio 2015\Projects\GlsTestApi\GlsTestApi\bin\Debug\GlsTestApi.exe
+c:\users\bnowicki\documents\visual studio 2015\Projects\GlsTestApi\GlsTestApi\bin\Debug\GlsTestApi.pdb
+c:\users\bnowicki\documents\visual studio 2015\Projects\GlsTestApi\GlsTestApi\obj\Debug\GlsTestApi.Form1.resources
+c:\users\bnowicki\documents\visual studio 2015\Projects\GlsTestApi\GlsTestApi\obj\Debug\GlsTestApi.Properties.Resources.resources
+c:\users\bnowicki\documents\visual studio 2015\Projects\GlsTestApi\GlsTestApi\obj\Debug\GlsTestApi.csproj.GenerateResource.Cache
+c:\users\bnowicki\documents\visual studio 2015\Projects\GlsTestApi\GlsTestApi\obj\Debug\GlsTestApi.exe
+c:\users\bnowicki\documents\visual studio 2015\Projects\GlsTestApi\GlsTestApi\obj\Debug\GlsTestApi.pdb

@@ -1,0 +1,1545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Ade2" targetNamespace="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl">
+      <xsd:complexType name="cSession">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="session" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cConsign">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="rname1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rname2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rname3" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="rcountry" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="rzipcode" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="rcity" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="rstreet" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rphone" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rcontact" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="references" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="notes" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="quantity" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="weight" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="date" type="xsd:date" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="pfc" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sendaddr" type="tns:cSenderAddress" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="srv_ade" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="srv_bool" type="tns:cServicesBool" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="srv_daw" type="tns:cServiceDAW" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="srv_ident" type="tns:cServiceIDENT" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="srv_ppe" type="tns:cServicePPE" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="srv_sds" type="tns:cServiceSDS" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="parcels" type="tns:cParcelsArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cSenderAddress">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="name1" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="name2" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="name3" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="zipcode" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="city" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="street" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cServicesBool">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="cod" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="cod_amount" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="exw" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rod" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="pod" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="exc" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ident" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="daw" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ps" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="pr" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="s10" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="s12" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sat" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ow" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="srs" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sds" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="cdx" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="cdx_amount" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="cdx_currency" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cServiceDAW">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="building" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="floor" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="room" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="phone" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="altrec" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cServiceIDENT">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="name" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="country" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="zipcode" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="city" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="street" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="date_birth" type="xsd:date" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="identity" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ident_doctype" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="nation" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="spages" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ssign" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sdealsend" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sdealrec" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cServicePPE">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="sname1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sname2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sname3" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="scountry" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="szipcode" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="scity" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="sstreet" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sphone" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="scontact" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="rname1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rname2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rname3" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="rcountry" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="rzipcode" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="rcity" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="rstreet" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rphone" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rcontact" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="references" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="weight" type="xsd:float" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cServiceSDS">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="name1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="name2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="name3" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="country" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="zipcode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="city" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="street" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="phone" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="email" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="gps_lati" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="gps_long" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="mon_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="mon_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tue_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tue_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="wed_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="wed_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="thu_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="thu_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fri_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fri_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sat_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sat_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sun_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sun_close" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cParcelsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="items" type="tns:cParcel" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="cParcel">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="number" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="reference" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="weight" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="srv_ade" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="srv_bool" type="tns:cServicesBool" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cID">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cConsignsIDsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="items" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="cLabels">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="labels" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cLabelsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="items" type="tns:cLabel" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="cLabel">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="number" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="file" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cLabelsIdent">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="labels" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="ident" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cPickupsIDsArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="items" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="cPickup">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="desc" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="quantity" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="weight" type="xsd:float" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="datetime" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cReceipt">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="receipt" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cIdent">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="ident" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cProfilesArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="items" type="tns:cProfile" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="cProfile">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:int" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="desc" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cLang">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="lang" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cStatus">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="status" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cStringArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="items" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="cSenderAddressArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="items" type="tns:cSenderAddress" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="cServices">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="srv_ade" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="srv_bool" type="tns:cServicesBool" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cCODMax">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="max_cod" type="xsd:float" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cParcelWeightsMax">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="weight_max_national" type="xsd:float" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="weight_max_international" type="xsd:float" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cCity">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="city" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cParcelShopArray">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="items" type="tns:cParcelShop" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="cParcelShop">
+        <xsd:all>
+          <xsd:element minOccurs="1" maxOccurs="1" name="id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="distance" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="name1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="name2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="name3" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="country" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="zipcode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="city" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="street" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="phone" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="email" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="gps_lati" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="gps_long" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="mon_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="mon_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tue_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tue_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="wed_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="wed_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="thu_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="thu_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fri_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fri_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sat_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sat_close" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sun_open" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sun_close" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:element name="adeLogin" type="tns:adeLogin" />
+      <xsd:complexType name="adeLogin">
+        <xsd:sequence>
+          <xsd:element name="user_name" type="xsd:string" />
+          <xsd:element name="user_password" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeLoginResponse" type="tns:adeLoginResponse" />
+      <xsd:complexType name="adeLoginResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cSession" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeLogout" type="tns:adeLogout" />
+      <xsd:complexType name="adeLogout">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeLogoutResponse" type="tns:adeLogoutResponse" />
+      <xsd:complexType name="adeLogoutResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cSession" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_Insert" type="tns:adePreparingBox_Insert" />
+      <xsd:complexType name="adePreparingBox_Insert">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="consign_prep_data" type="tns:cConsign" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_InsertResponse" type="tns:adePreparingBox_InsertResponse" />
+      <xsd:complexType name="adePreparingBox_InsertResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsignIDs" type="tns:adePreparingBox_GetConsignIDs" />
+      <xsd:complexType name="adePreparingBox_GetConsignIDs">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id_start" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsignIDsResponse" type="tns:adePreparingBox_GetConsignIDsResponse" />
+      <xsd:complexType name="adePreparingBox_GetConsignIDsResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cConsignsIDsArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_DeleteConsign" type="tns:adePreparingBox_DeleteConsign" />
+      <xsd:complexType name="adePreparingBox_DeleteConsign">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_DeleteConsignResponse" type="tns:adePreparingBox_DeleteConsignResponse" />
+      <xsd:complexType name="adePreparingBox_DeleteConsignResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsign" type="tns:adePreparingBox_GetConsign" />
+      <xsd:complexType name="adePreparingBox_GetConsign">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsignResponse" type="tns:adePreparingBox_GetConsignResponse" />
+      <xsd:complexType name="adePreparingBox_GetConsignResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cConsign" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsignLabels" type="tns:adePreparingBox_GetConsignLabels" />
+      <xsd:complexType name="adePreparingBox_GetConsignLabels">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="mode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsignLabelsResponse" type="tns:adePreparingBox_GetConsignLabelsResponse" />
+      <xsd:complexType name="adePreparingBox_GetConsignLabelsResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cLabels" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsignLabelsExt" type="tns:adePreparingBox_GetConsignLabelsExt" />
+      <xsd:complexType name="adePreparingBox_GetConsignLabelsExt">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="mode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsignLabelsExtResponse" type="tns:adePreparingBox_GetConsignLabelsExtResponse" />
+      <xsd:complexType name="adePreparingBox_GetConsignLabelsExtResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cLabelsArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsignDocs" type="tns:adePreparingBox_GetConsignDocs" />
+      <xsd:complexType name="adePreparingBox_GetConsignDocs">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="mode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePreparingBox_GetConsignDocsResponse" type="tns:adePreparingBox_GetConsignDocsResponse" />
+      <xsd:complexType name="adePreparingBox_GetConsignDocsResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cLabelsIdent" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_Create" type="tns:adePickup_Create" />
+      <xsd:complexType name="adePickup_Create">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="consigns_ids" type="tns:cConsignsIDsArray" />
+          <xsd:element name="desc" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_CreateResponse" type="tns:adePickup_CreateResponse" />
+      <xsd:complexType name="adePickup_CreateResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetIDs" type="tns:adePickup_GetIDs" />
+      <xsd:complexType name="adePickup_GetIDs">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id_start" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetIDsResponse" type="tns:adePickup_GetIDsResponse" />
+      <xsd:complexType name="adePickup_GetIDsResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cPickupsIDsArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_Get" type="tns:adePickup_Get" />
+      <xsd:complexType name="adePickup_Get">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetResponse" type="tns:adePickup_GetResponse" />
+      <xsd:complexType name="adePickup_GetResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cPickup" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetConsignIDs" type="tns:adePickup_GetConsignIDs" />
+      <xsd:complexType name="adePickup_GetConsignIDs">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="id_start" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetConsignIDsResponse" type="tns:adePickup_GetConsignIDsResponse" />
+      <xsd:complexType name="adePickup_GetConsignIDsResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cConsignsIDsArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetConsign" type="tns:adePickup_GetConsign" />
+      <xsd:complexType name="adePickup_GetConsign">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetConsignResponse" type="tns:adePickup_GetConsignResponse" />
+      <xsd:complexType name="adePickup_GetConsignResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cConsign" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetReceipt" type="tns:adePickup_GetReceipt" />
+      <xsd:complexType name="adePickup_GetReceipt">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="mode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetReceiptResponse" type="tns:adePickup_GetReceiptResponse" />
+      <xsd:complexType name="adePickup_GetReceiptResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cReceipt" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetLabels" type="tns:adePickup_GetLabels" />
+      <xsd:complexType name="adePickup_GetLabels">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="mode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetLabelsResponse" type="tns:adePickup_GetLabelsResponse" />
+      <xsd:complexType name="adePickup_GetLabelsResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cLabels" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetIdent" type="tns:adePickup_GetIdent" />
+      <xsd:complexType name="adePickup_GetIdent">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetIdentResponse" type="tns:adePickup_GetIdentResponse" />
+      <xsd:complexType name="adePickup_GetIdentResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cIdent" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetConsignLabels" type="tns:adePickup_GetConsignLabels" />
+      <xsd:complexType name="adePickup_GetConsignLabels">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="mode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetConsignLabelsResponse" type="tns:adePickup_GetConsignLabelsResponse" />
+      <xsd:complexType name="adePickup_GetConsignLabelsResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cLabels" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetConsignLabelsExt" type="tns:adePickup_GetConsignLabelsExt" />
+      <xsd:complexType name="adePickup_GetConsignLabelsExt">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="mode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetConsignLabelsExtResponse" type="tns:adePickup_GetConsignLabelsExtResponse" />
+      <xsd:complexType name="adePickup_GetConsignLabelsExtResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cLabelsArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetParcelLabel" type="tns:adePickup_GetParcelLabel" />
+      <xsd:complexType name="adePickup_GetParcelLabel">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="number" type="xsd:string" />
+          <xsd:element name="mode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_GetParcelLabelResponse" type="tns:adePickup_GetParcelLabelResponse" />
+      <xsd:complexType name="adePickup_GetParcelLabelResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cLabels" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_ParcelNumberSearch" type="tns:adePickup_ParcelNumberSearch" />
+      <xsd:complexType name="adePickup_ParcelNumberSearch">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="number" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePickup_ParcelNumberSearchResponse" type="tns:adePickup_ParcelNumberSearchResponse" />
+      <xsd:complexType name="adePickup_ParcelNumberSearchResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cConsign" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeProfile_GetIDs" type="tns:adeProfile_GetIDs" />
+      <xsd:complexType name="adeProfile_GetIDs">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeProfile_GetIDsResponse" type="tns:adeProfile_GetIDsResponse" />
+      <xsd:complexType name="adeProfile_GetIDsResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cProfilesArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeProfile_GetActive" type="tns:adeProfile_GetActive" />
+      <xsd:complexType name="adeProfile_GetActive">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeProfile_GetActiveResponse" type="tns:adeProfile_GetActiveResponse" />
+      <xsd:complexType name="adeProfile_GetActiveResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cProfile" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeProfile_Change" type="tns:adeProfile_Change" />
+      <xsd:complexType name="adeProfile_Change">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeProfile_ChangeResponse" type="tns:adeProfile_ChangeResponse" />
+      <xsd:complexType name="adeProfile_ChangeResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cProfile" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeLang_GetActive" type="tns:adeLang_GetActive" />
+      <xsd:complexType name="adeLang_GetActive">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeLang_GetActiveResponse" type="tns:adeLang_GetActiveResponse" />
+      <xsd:complexType name="adeLang_GetActiveResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cLang" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeLang_Change" type="tns:adeLang_Change" />
+      <xsd:complexType name="adeLang_Change">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="lang" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeLang_ChangeResponse" type="tns:adeLang_ChangeResponse" />
+      <xsd:complexType name="adeLang_ChangeResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cLang" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePfc_GetStatus" type="tns:adePfc_GetStatus" />
+      <xsd:complexType name="adePfc_GetStatus">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePfc_GetStatusResponse" type="tns:adePfc_GetStatusResponse" />
+      <xsd:complexType name="adePfc_GetStatusResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cStatus" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePfc_GetDictionary" type="tns:adePfc_GetDictionary" />
+      <xsd:complexType name="adePfc_GetDictionary">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adePfc_GetDictionaryResponse" type="tns:adePfc_GetDictionaryResponse" />
+      <xsd:complexType name="adePfc_GetDictionaryResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cStringArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeSendAddr_GetStatus" type="tns:adeSendAddr_GetStatus" />
+      <xsd:complexType name="adeSendAddr_GetStatus">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeSendAddr_GetStatusResponse" type="tns:adeSendAddr_GetStatusResponse" />
+      <xsd:complexType name="adeSendAddr_GetStatusResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cStatus" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeSendAddr_GetDictionary" type="tns:adeSendAddr_GetDictionary" />
+      <xsd:complexType name="adeSendAddr_GetDictionary">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeSendAddr_GetDictionaryResponse" type="tns:adeSendAddr_GetDictionaryResponse" />
+      <xsd:complexType name="adeSendAddr_GetDictionaryResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cSenderAddressArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeServices_GetAllowed" type="tns:adeServices_GetAllowed" />
+      <xsd:complexType name="adeServices_GetAllowed">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeServices_GetAllowedResponse" type="tns:adeServices_GetAllowedResponse" />
+      <xsd:complexType name="adeServices_GetAllowedResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cServices" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeServices_GetMaxCOD" type="tns:adeServices_GetMaxCOD" />
+      <xsd:complexType name="adeServices_GetMaxCOD">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeServices_GetMaxCODResponse" type="tns:adeServices_GetMaxCODResponse" />
+      <xsd:complexType name="adeServices_GetMaxCODResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cCODMax" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeServices_GetMaxParcelWeights" type="tns:adeServices_GetMaxParcelWeights" />
+      <xsd:complexType name="adeServices_GetMaxParcelWeights">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeServices_GetMaxParcelWeightsResponse" type="tns:adeServices_GetMaxParcelWeightsResponse" />
+      <xsd:complexType name="adeServices_GetMaxParcelWeightsResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cParcelWeightsMax" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeServices_GetGuaranteed" type="tns:adeServices_GetGuaranteed" />
+      <xsd:complexType name="adeServices_GetGuaranteed">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="zipcode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeServices_GetGuaranteedResponse" type="tns:adeServices_GetGuaranteedResponse" />
+      <xsd:complexType name="adeServices_GetGuaranteedResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cServices" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeZip_GetCity" type="tns:adeZip_GetCity" />
+      <xsd:complexType name="adeZip_GetCity">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="zipcode" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeZip_GetCityResponse" type="tns:adeZip_GetCityResponse" />
+      <xsd:complexType name="adeZip_GetCityResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cCity" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeParcelShop_SearchByZip" type="tns:adeParcelShop_SearchByZip" />
+      <xsd:complexType name="adeParcelShop_SearchByZip">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="zipcode" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="street" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeParcelShop_SearchByZipResponse" type="tns:adeParcelShop_SearchByZipResponse" />
+      <xsd:complexType name="adeParcelShop_SearchByZipResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cParcelShopArray" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeParcelShop_SearchByID" type="tns:adeParcelShop_SearchByID" />
+      <xsd:complexType name="adeParcelShop_SearchByID">
+        <xsd:sequence>
+          <xsd:element name="session" type="xsd:string" />
+          <xsd:element name="id" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="adeParcelShop_SearchByIDResponse" type="tns:adeParcelShop_SearchByIDResponse" />
+      <xsd:complexType name="adeParcelShop_SearchByIDResponse">
+        <xsd:sequence>
+          <xsd:element name="return" type="tns:cParcelShop" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="adeLoginIn">
+    <wsdl:part name="parameters" element="tns:adeLogin" />
+  </wsdl:message>
+  <wsdl:message name="adeLoginOut">
+    <wsdl:part name="parameters" element="tns:adeLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeLogoutIn">
+    <wsdl:part name="parameters" element="tns:adeLogout" />
+  </wsdl:message>
+  <wsdl:message name="adeLogoutOut">
+    <wsdl:part name="parameters" element="tns:adeLogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_InsertIn">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_Insert" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_InsertOut">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignIDsIn">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsignIDs" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignIDsOut">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsignIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_DeleteConsignIn">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_DeleteConsign" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_DeleteConsignOut">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_DeleteConsignResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignIn">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsign" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignOut">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsignResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignLabelsIn">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsignLabels" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignLabelsOut">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsignLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignLabelsExtIn">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsignLabelsExt" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignLabelsExtOut">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsignLabelsExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignDocsIn">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsignDocs" />
+  </wsdl:message>
+  <wsdl:message name="adePreparingBox_GetConsignDocsOut">
+    <wsdl:part name="parameters" element="tns:adePreparingBox_GetConsignDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_CreateIn">
+    <wsdl:part name="parameters" element="tns:adePickup_Create" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_CreateOut">
+    <wsdl:part name="parameters" element="tns:adePickup_CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetIDsIn">
+    <wsdl:part name="parameters" element="tns:adePickup_GetIDs" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetIDsOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetIn">
+    <wsdl:part name="parameters" element="tns:adePickup_Get" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetConsignIDsIn">
+    <wsdl:part name="parameters" element="tns:adePickup_GetConsignIDs" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetConsignIDsOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetConsignIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetConsignIn">
+    <wsdl:part name="parameters" element="tns:adePickup_GetConsign" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetConsignOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetConsignResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetReceiptIn">
+    <wsdl:part name="parameters" element="tns:adePickup_GetReceipt" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetReceiptOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetLabelsIn">
+    <wsdl:part name="parameters" element="tns:adePickup_GetLabels" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetLabelsOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetIdentIn">
+    <wsdl:part name="parameters" element="tns:adePickup_GetIdent" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetIdentOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetIdentResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetConsignLabelsIn">
+    <wsdl:part name="parameters" element="tns:adePickup_GetConsignLabels" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetConsignLabelsOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetConsignLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetConsignLabelsExtIn">
+    <wsdl:part name="parameters" element="tns:adePickup_GetConsignLabelsExt" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetConsignLabelsExtOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetConsignLabelsExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetParcelLabelIn">
+    <wsdl:part name="parameters" element="tns:adePickup_GetParcelLabel" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_GetParcelLabelOut">
+    <wsdl:part name="parameters" element="tns:adePickup_GetParcelLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_ParcelNumberSearchIn">
+    <wsdl:part name="parameters" element="tns:adePickup_ParcelNumberSearch" />
+  </wsdl:message>
+  <wsdl:message name="adePickup_ParcelNumberSearchOut">
+    <wsdl:part name="parameters" element="tns:adePickup_ParcelNumberSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeProfile_GetIDsIn">
+    <wsdl:part name="parameters" element="tns:adeProfile_GetIDs" />
+  </wsdl:message>
+  <wsdl:message name="adeProfile_GetIDsOut">
+    <wsdl:part name="parameters" element="tns:adeProfile_GetIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeProfile_GetActiveIn">
+    <wsdl:part name="parameters" element="tns:adeProfile_GetActive" />
+  </wsdl:message>
+  <wsdl:message name="adeProfile_GetActiveOut">
+    <wsdl:part name="parameters" element="tns:adeProfile_GetActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeProfile_ChangeIn">
+    <wsdl:part name="parameters" element="tns:adeProfile_Change" />
+  </wsdl:message>
+  <wsdl:message name="adeProfile_ChangeOut">
+    <wsdl:part name="parameters" element="tns:adeProfile_ChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeLang_GetActiveIn">
+    <wsdl:part name="parameters" element="tns:adeLang_GetActive" />
+  </wsdl:message>
+  <wsdl:message name="adeLang_GetActiveOut">
+    <wsdl:part name="parameters" element="tns:adeLang_GetActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeLang_ChangeIn">
+    <wsdl:part name="parameters" element="tns:adeLang_Change" />
+  </wsdl:message>
+  <wsdl:message name="adeLang_ChangeOut">
+    <wsdl:part name="parameters" element="tns:adeLang_ChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePfc_GetStatusIn">
+    <wsdl:part name="parameters" element="tns:adePfc_GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="adePfc_GetStatusOut">
+    <wsdl:part name="parameters" element="tns:adePfc_GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="adePfc_GetDictionaryIn">
+    <wsdl:part name="parameters" element="tns:adePfc_GetDictionary" />
+  </wsdl:message>
+  <wsdl:message name="adePfc_GetDictionaryOut">
+    <wsdl:part name="parameters" element="tns:adePfc_GetDictionaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeSendAddr_GetStatusIn">
+    <wsdl:part name="parameters" element="tns:adeSendAddr_GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="adeSendAddr_GetStatusOut">
+    <wsdl:part name="parameters" element="tns:adeSendAddr_GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeSendAddr_GetDictionaryIn">
+    <wsdl:part name="parameters" element="tns:adeSendAddr_GetDictionary" />
+  </wsdl:message>
+  <wsdl:message name="adeSendAddr_GetDictionaryOut">
+    <wsdl:part name="parameters" element="tns:adeSendAddr_GetDictionaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeServices_GetAllowedIn">
+    <wsdl:part name="parameters" element="tns:adeServices_GetAllowed" />
+  </wsdl:message>
+  <wsdl:message name="adeServices_GetAllowedOut">
+    <wsdl:part name="parameters" element="tns:adeServices_GetAllowedResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeServices_GetMaxCODIn">
+    <wsdl:part name="parameters" element="tns:adeServices_GetMaxCOD" />
+  </wsdl:message>
+  <wsdl:message name="adeServices_GetMaxCODOut">
+    <wsdl:part name="parameters" element="tns:adeServices_GetMaxCODResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeServices_GetMaxParcelWeightsIn">
+    <wsdl:part name="parameters" element="tns:adeServices_GetMaxParcelWeights" />
+  </wsdl:message>
+  <wsdl:message name="adeServices_GetMaxParcelWeightsOut">
+    <wsdl:part name="parameters" element="tns:adeServices_GetMaxParcelWeightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeServices_GetGuaranteedIn">
+    <wsdl:part name="parameters" element="tns:adeServices_GetGuaranteed" />
+  </wsdl:message>
+  <wsdl:message name="adeServices_GetGuaranteedOut">
+    <wsdl:part name="parameters" element="tns:adeServices_GetGuaranteedResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeZip_GetCityIn">
+    <wsdl:part name="parameters" element="tns:adeZip_GetCity" />
+  </wsdl:message>
+  <wsdl:message name="adeZip_GetCityOut">
+    <wsdl:part name="parameters" element="tns:adeZip_GetCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeParcelShop_SearchByZipIn">
+    <wsdl:part name="parameters" element="tns:adeParcelShop_SearchByZip" />
+  </wsdl:message>
+  <wsdl:message name="adeParcelShop_SearchByZipOut">
+    <wsdl:part name="parameters" element="tns:adeParcelShop_SearchByZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="adeParcelShop_SearchByIDIn">
+    <wsdl:part name="parameters" element="tns:adeParcelShop_SearchByID" />
+  </wsdl:message>
+  <wsdl:message name="adeParcelShop_SearchByIDOut">
+    <wsdl:part name="parameters" element="tns:adeParcelShop_SearchByIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Ade2PortType">
+    <wsdl:operation name="adeLogin">
+      <documentation>Login to ADE Plus.</documentation>
+      <wsdl:input message="tns:adeLoginIn" />
+      <wsdl:output message="tns:adeLoginOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeLogout">
+      <documentation>Logout from ADE Plus.</documentation>
+      <wsdl:input message="tns:adeLogoutIn" />
+      <wsdl:output message="tns:adeLogoutOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_Insert">
+      <documentation>Insert consignment to preparing box.</documentation>
+      <wsdl:input message="tns:adePreparingBox_InsertIn" />
+      <wsdl:output message="tns:adePreparingBox_InsertOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsignIDs">
+      <documentation>List consignments from preparing box.</documentation>
+      <wsdl:input message="tns:adePreparingBox_GetConsignIDsIn" />
+      <wsdl:output message="tns:adePreparingBox_GetConsignIDsOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_DeleteConsign">
+      <documentation>Delete consignment from preparing box.</documentation>
+      <wsdl:input message="tns:adePreparingBox_DeleteConsignIn" />
+      <wsdl:output message="tns:adePreparingBox_DeleteConsignOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsign">
+      <documentation>Get data about consignment from preparing box.</documentation>
+      <wsdl:input message="tns:adePreparingBox_GetConsignIn" />
+      <wsdl:output message="tns:adePreparingBox_GetConsignOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsignLabels">
+      <documentation>Get consignment labels from preparing box.</documentation>
+      <wsdl:input message="tns:adePreparingBox_GetConsignLabelsIn" />
+      <wsdl:output message="tns:adePreparingBox_GetConsignLabelsOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsignLabelsExt">
+      <documentation>Get consignment labels from preparing box (separately).</documentation>
+      <wsdl:input message="tns:adePreparingBox_GetConsignLabelsExtIn" />
+      <wsdl:output message="tns:adePreparingBox_GetConsignLabelsExtOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsignDocs">
+      <documentation>Get all consignment documents from preparing box.</documentation>
+      <wsdl:input message="tns:adePreparingBox_GetConsignDocsIn" />
+      <wsdl:output message="tns:adePreparingBox_GetConsignDocsOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_Create">
+      <documentation>Create pickup from preparing box.</documentation>
+      <wsdl:input message="tns:adePickup_CreateIn" />
+      <wsdl:output message="tns:adePickup_CreateOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetIDs">
+      <documentation>List avail pickups.</documentation>
+      <wsdl:input message="tns:adePickup_GetIDsIn" />
+      <wsdl:output message="tns:adePickup_GetIDsOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_Get">
+      <documentation>Get info about pickup.</documentation>
+      <wsdl:input message="tns:adePickup_GetIn" />
+      <wsdl:output message="tns:adePickup_GetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetConsignIDs">
+      <documentation>List consignments from pickup.</documentation>
+      <wsdl:input message="tns:adePickup_GetConsignIDsIn" />
+      <wsdl:output message="tns:adePickup_GetConsignIDsOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetConsign">
+      <documentation>Get data about consignment.</documentation>
+      <wsdl:input message="tns:adePickup_GetConsignIn" />
+      <wsdl:output message="tns:adePickup_GetConsignOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetReceipt">
+      <documentation>Get receipt from pickup.</documentation>
+      <wsdl:input message="tns:adePickup_GetReceiptIn" />
+      <wsdl:output message="tns:adePickup_GetReceiptOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetLabels">
+      <documentation>Get labels from pickup.</documentation>
+      <wsdl:input message="tns:adePickup_GetLabelsIn" />
+      <wsdl:output message="tns:adePickup_GetLabelsOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetIdent">
+      <documentation>Get ident document from pickup.</documentation>
+      <wsdl:input message="tns:adePickup_GetIdentIn" />
+      <wsdl:output message="tns:adePickup_GetIdentOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetConsignLabels">
+      <documentation>Get labels from consignment.</documentation>
+      <wsdl:input message="tns:adePickup_GetConsignLabelsIn" />
+      <wsdl:output message="tns:adePickup_GetConsignLabelsOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetConsignLabelsExt">
+      <documentation>Get labels from consignment (separately).</documentation>
+      <wsdl:input message="tns:adePickup_GetConsignLabelsExtIn" />
+      <wsdl:output message="tns:adePickup_GetConsignLabelsExtOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetParcelLabel">
+      <documentation>Get labels from parcel</documentation>
+      <wsdl:input message="tns:adePickup_GetParcelLabelIn" />
+      <wsdl:output message="tns:adePickup_GetParcelLabelOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_ParcelNumberSearch">
+      <documentation>Search for consignment based on number of parcel.</documentation>
+      <wsdl:input message="tns:adePickup_ParcelNumberSearchIn" />
+      <wsdl:output message="tns:adePickup_ParcelNumberSearchOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeProfile_GetIDs">
+      <documentation>Get profiles info.</documentation>
+      <wsdl:input message="tns:adeProfile_GetIDsIn" />
+      <wsdl:output message="tns:adeProfile_GetIDsOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeProfile_GetActive">
+      <documentation>Get active profile info.</documentation>
+      <wsdl:input message="tns:adeProfile_GetActiveIn" />
+      <wsdl:output message="tns:adeProfile_GetActiveOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeProfile_Change">
+      <documentation>Change profile.</documentation>
+      <wsdl:input message="tns:adeProfile_ChangeIn" />
+      <wsdl:output message="tns:adeProfile_ChangeOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeLang_GetActive">
+      <documentation>Get active language.</documentation>
+      <wsdl:input message="tns:adeLang_GetActiveIn" />
+      <wsdl:output message="tns:adeLang_GetActiveOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeLang_Change">
+      <documentation>Change language</documentation>
+      <wsdl:input message="tns:adeLang_ChangeIn" />
+      <wsdl:output message="tns:adeLang_ChangeOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePfc_GetStatus">
+      <documentation>Return the PFC status.</documentation>
+      <wsdl:input message="tns:adePfc_GetStatusIn" />
+      <wsdl:output message="tns:adePfc_GetStatusOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adePfc_GetDictionary">
+      <documentation>Return the addresss of the sender dictionary.</documentation>
+      <wsdl:input message="tns:adePfc_GetDictionaryIn" />
+      <wsdl:output message="tns:adePfc_GetDictionaryOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeSendAddr_GetStatus">
+      <documentation>Return the PFC status.</documentation>
+      <wsdl:input message="tns:adeSendAddr_GetStatusIn" />
+      <wsdl:output message="tns:adeSendAddr_GetStatusOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeSendAddr_GetDictionary">
+      <documentation>Return the addresss of the sender dictionary.</documentation>
+      <wsdl:input message="tns:adeSendAddr_GetDictionaryIn" />
+      <wsdl:output message="tns:adeSendAddr_GetDictionaryOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeServices_GetAllowed">
+      <documentation>Get allowed services for user.</documentation>
+      <wsdl:input message="tns:adeServices_GetAllowedIn" />
+      <wsdl:output message="tns:adeServices_GetAllowedOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeServices_GetMaxCOD">
+      <documentation>Return maximum amount of COD.</documentation>
+      <wsdl:input message="tns:adeServices_GetMaxCODIn" />
+      <wsdl:output message="tns:adeServices_GetMaxCODOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeServices_GetMaxParcelWeights">
+      <documentation>Return maximum parcel weights (national and international).</documentation>
+      <wsdl:input message="tns:adeServices_GetMaxParcelWeightsIn" />
+      <wsdl:output message="tns:adeServices_GetMaxParcelWeightsOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeServices_GetGuaranteed">
+      <documentation>Get guaranteed services for given zip code.</documentation>
+      <wsdl:input message="tns:adeServices_GetGuaranteedIn" />
+      <wsdl:output message="tns:adeServices_GetGuaranteedOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeZip_GetCity">
+      <documentation>Search for city.</documentation>
+      <wsdl:input message="tns:adeZip_GetCityIn" />
+      <wsdl:output message="tns:adeZip_GetCityOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeParcelShop_SearchByZip">
+      <documentation>Search for ParcelShop by zip</documentation>
+      <wsdl:input message="tns:adeParcelShop_SearchByZipIn" />
+      <wsdl:output message="tns:adeParcelShop_SearchByZipOut" />
+    </wsdl:operation>
+    <wsdl:operation name="adeParcelShop_SearchByID">
+      <documentation>Search for ParcelShop by ID</documentation>
+      <wsdl:input message="tns:adeParcelShop_SearchByIDIn" />
+      <wsdl:output message="tns:adeParcelShop_SearchByIDOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Ade2Binding" type="tns:Ade2PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="adeLogin">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeLogout">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeLogout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_Insert">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePreparingBox_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsignIDs">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePreparingBox_GetConsignIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_DeleteConsign">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePreparingBox_DeleteConsign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsign">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePreparingBox_GetConsign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsignLabels">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePreparingBox_GetConsignLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsignLabelsExt">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePreparingBox_GetConsignLabelsExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePreparingBox_GetConsignDocs">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePreparingBox_GetConsignDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_Create">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetIDs">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_GetIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_Get">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetConsignIDs">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_GetConsignIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetConsign">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_GetConsign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetReceipt">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_GetReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetLabels">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_GetLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetIdent">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_GetIdent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetConsignLabels">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_GetConsignLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetConsignLabelsExt">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_GetConsignLabelsExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_GetParcelLabel">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_GetParcelLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePickup_ParcelNumberSearch">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePickup_ParcelNumberSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeProfile_GetIDs">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeProfile_GetIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeProfile_GetActive">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeProfile_GetActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeProfile_Change">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeProfile_Change" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeLang_GetActive">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeLang_GetActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeLang_Change">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeLang_Change" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePfc_GetStatus">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePfc_GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adePfc_GetDictionary">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adePfc_GetDictionary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeSendAddr_GetStatus">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeSendAddr_GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeSendAddr_GetDictionary">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeSendAddr_GetDictionary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeServices_GetAllowed">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeServices_GetAllowed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeServices_GetMaxCOD">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeServices_GetMaxCOD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeServices_GetMaxParcelWeights">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeServices_GetMaxParcelWeights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeServices_GetGuaranteed">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeServices_GetGuaranteed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeZip_GetCity">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeZip_GetCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeParcelShop_SearchByZip">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeParcelShop_SearchByZip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="adeParcelShop_SearchByID">
+      <soap:operation soapAction="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl#adeParcelShop_SearchByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Ade2Service">
+    <wsdl:port name="Ade2Port" binding="tns:Ade2Binding">
+      <soap:address location="https://ade-test.gls-poland.com/adeplus/pm1/ade_webapi2.php?wsdl" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
